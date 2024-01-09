@@ -21,6 +21,20 @@ func main() {
 
 	app.Get("/", login)
 
+	// Authentication route
+	app.Post("/authenticate", func(c *fiber.Ctx) error {
+		// Retrieve form data
+		username := c.FormValue("username")
+		password := c.FormValue("password")
+
+		// Simple authentication (replace with your actual authentication logic)
+		if username == "user" && password == "password" {
+			return c.SendString("Login successful!")
+		} else {
+			return c.SendString("Login failed. Invalid username or password.")
+		}
+	})
+
 	log.Fatal(app.Listen(":3000"))
 }
 

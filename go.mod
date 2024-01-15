@@ -2,7 +2,10 @@ module Halikha
 
 go 1.18
 
-require github.com/gofiber/fiber/v2 v2.49.2
+require (
+	github.com/go-sql-driver/mysql v1.7.1
+	github.com/gofiber/fiber/v2 v2.49.2
+)
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect

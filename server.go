@@ -16,6 +16,7 @@ var db *sql.DB
 type User struct {
 	ID       int64
 	Username string
+	Usertype string
 	Password string
 }
 
@@ -70,7 +71,7 @@ func main() {
 		var user User
 		// to replace the code above for authentication logic
 		row := db.QueryRow("SELECT * FROM users WHERE username = ?", username)
-		if err := row.Scan(&user.ID, &user.Username, &user.Password); err != nil {
+		if err := row.Scan(&user.ID, &user.Username, &user.Usertype, &user.Password); err != nil {
 			return c.SendString("wrong username or password")
 		}
 
@@ -78,7 +79,12 @@ func main() {
 
 		if user.Username == username {
 			if user.Password == password {
-				return c.SendFile("public/home.html")
+
+				if user.Usertype == "artist" {
+					return c.SendFile("public/artistHomePage.html")
+				} else {
+					return c.SendFile("public/customerHomePage.html")
+				}
 			}
 		}
 		return nil

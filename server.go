@@ -5,20 +5,12 @@ import (
 	"fmt"
 	"log"
 	"os"
-
+	"Halikha/models"
 	"github.com/go-sql-driver/mysql"
 	"github.com/gofiber/fiber/v2"
 )
 
 var db *sql.DB
-
-// user struct
-type User struct {
-	ID       int64
-	Username string
-	Usertype string
-	Password string
-}
 
 func main() {
 	// connect to DB first
@@ -68,7 +60,7 @@ func main() {
 
 
 
-		var user User
+		var user models.User
 		// to replace the code above for authentication logic
 		row := db.QueryRow("SELECT * FROM users WHERE username = ?", username)
 		if err := row.Scan(&user.ID, &user.Username, &user.Usertype, &user.Password); err != nil {

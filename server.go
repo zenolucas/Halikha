@@ -81,9 +81,9 @@ func main() {
 			if user.Password == password {
 
 				if user.Usertype == "artist" {
-					return c.SendFile("public/artistHomepage.html")
+					return c.SendFile("public/artistHomePage.html")
 				} else {
-					return c.SendFile("public/customerHomepage.html")
+					return c.SendFile("public/customerHomePage.html")
 				}
 			}
 		}

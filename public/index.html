@@ -9,7 +9,9 @@
   <!-- The magical link for Bootstrap CSS dependencies -->
   <!-- Add this to the <head> section of your HTML file -->
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bootstrap.css/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/styles.css">
+
 </head>
 
 <body>
@@ -33,23 +35,26 @@
 
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form2Example11">Username</label>
-                      <input type="text" id="form2Example11" class="form-control"
-                        placeholder="input username" name="username"/>
+                      <input type="text" id="form2Example11" class="form-control" placeholder="input username"
+                        name="username" />
                     </div>
 
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form2Example22">Password</label>
-                      <input type="password" id="form2Example22" class="form-control" name="password"/>
+                      <input type="password" id="form2Example22" class="form-control" name="password" />
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log in</button>
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
+                        in</button>
+                      <br>
+
                     </div>
 
                   </form>
-
                 </div>
               </div>
+
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                   <h4 class="mb-4">Lorem ipsumakil roderick labore et dolore magna aliqua</h4>
@@ -65,12 +70,34 @@
     </div>
   </section>
 
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Sign Up
+  </button>
 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
 
-  <script src="../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+          <h1>INSERT SIGNUP FORM HERE</h1>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- The magical link for Bootstrap JavaScript dependencies -->
-  <script src="/bootstrap/js/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/bootstrap/js/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/bootstrap/js/popper.min.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 package main
 
 import (
+	"Halikha/models"
 	"database/sql"
 	"fmt"
 	"log"
 	"os"
-	"Halikha/models"
+
 	"github.com/go-sql-driver/mysql"
 	"github.com/gofiber/fiber/v2"
 )
@@ -50,41 +51,46 @@ func main() {
 
 	app.Get("/", login)
 
+	app.Get("/register", register)
+
 	// Authentication route
-	app.Post("/authenticate", func(c *fiber.Ctx) error {
-		// Retrieve form data
-		username := c.FormValue("username")
-		password := c.FormValue("password")
-
-		// Simple authentication (replace with your actual authentication logic)
-
-
-
-		var user models.User
-		// to replace the code above for authentication logic
-		row := db.QueryRow("SELECT * FROM users WHERE username = ?", username)
-		if err := row.Scan(&user.ID, &user.Username, &user.Usertype, &user.Password); err != nil {
-			return c.SendString("wrong username or password")
-		}
-
-		fmt.Println(user.ID, user.Username, user.Password)
-
-		if user.Username == username {
-			if user.Password == password {
-
-				if user.Usertype == "artist" {
-					return c.SendFile("public/artistHomePage.html")
-				} else {
-					return c.SendFile("public/customerHomePage.html")
-				}
-			}
-		}
-		return nil
-	})
+	app.Post("/authenticate", authenticate)
 
 	log.Fatal(app.Listen(":3000"))
 }
 
 func login(c *fiber.Ctx) error {
 	return c.SendFile("public/index.html")
+}
+
+func test(c *fiber.Ctx) error {
+	return c.SendFile("public/test.html")
+}
+
+func authenticate(c *fiber.Ctx) error {
+	// Retrieve form data
+	username := c.FormValue("username")
+	password := c.FormValue("password")
+	var user models.User
+
+	row := db.QueryRow("SELECT * FROM users WHERE username = ?", username)
+	if err := row.Scan(&user.ID, &user.Username, &user.Usertype, &user.Password); err != nil {
+		return c.SendString("wrong username or password")
+	}
+
+	if user.Username == username {
+		if user.Password == password {
+
+			if user.Usertype == "artist" {
+				return c.SendFile("public/artistHomePage.html")
+			} else {
+				return c.SendFile("public/customerHomePage.html")
+			}
+		}
+	}
+	return nil
+}
+
+func register(c *fiber.Ctx) error {
+	return nil
 }

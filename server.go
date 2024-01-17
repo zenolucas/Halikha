@@ -92,5 +92,6 @@ func authenticate(c *fiber.Ctx) error {
 }
 
 func register(c *fiber.Ctx) error {
+	// implement register logic here, INSERT sql stuff
 	return nil
 }

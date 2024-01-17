@@ -34,21 +34,23 @@
                     <p>Please login to your account</p>
 
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example11">Username</label>
-                      <input type="text" id="form2Example11" class="form-control" placeholder="input username"
+                      <label class="form-label" for="logUsername">Username</label>
+                      <input type="text" id="logUsername" class="form-control" placeholder="input username"
                         name="username" />
                     </div>
 
                     <div class="form-outline mb-4">
-                      <label class="form-label" for="form2Example22">Password</label>
-                      <input type="password" id="form2Example22" class="form-control" name="password" />
+                      <label class="form-label" for="logPassword">Password</label>
+                      <input type="password" id="logPassword" class="form-control" name="password" />
                     </div>
 
                     <div class="text-center pt-1 mb-5 pb-1">
                       <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Log
                         in</button>
-                      <br>
-
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" data-bs-toggle="modal"
+                        data-bs-target="#signUpModal" type="button">
+                        Sign Up
+                      </button>
                     </div>
 
                   </form>
@@ -70,13 +72,9 @@
     </div>
   </section>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Sign Up
-  </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -85,7 +83,27 @@
         </div>
         <div class="modal-body">
 
-          <h1>INSERT SIGNUP FORM HERE</h1>
+          <form action="/register" method="post">
+            <div class="form-outline mb-4">
+              <label class="form-label" for="signUpUsername">Username</label>
+              <input type="text" id="logUsername" class="form-control" placeholder="input username"
+                name="username" />
+            </div>
+  
+            <div class="form-outline mb-4">
+              <label class="form-label" for="signUpPassword">Password</label>
+              <input type="password" id="logPassword" class="form-control" name="password" />
+            </div>
+  
+            <div class="form-outline mb-4">
+              <label class="form-label" for="confirmPassword">enter password again lol</label>
+              <input type="password" id="confirmPassword" class="form-control" name="password" />
+            </div>
+  
+            <div class="text-center pt-1 mb-5 pb-1">
+              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Register Account</button>
+            </div>
+          </form>
 
         </div>
         <div class="modal-footer">

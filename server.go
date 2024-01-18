@@ -21,7 +21,7 @@ func main() {
 		Passwd:               os.Getenv("DBPASS"),
 		Net:                  "tcp",
 		Addr:                 "127.0.0.1:3306",
-		DBName:               "test",
+		DBName:               "Halikha",
 		AllowNativePasswords: true,
 	}
 	// Get a database handle.
@@ -51,7 +51,7 @@ func main() {
 
 	app.Get("/", login)
 
-	app.Get("/register", register)
+	app.Post("/register", register)
 
 	// Authentication route
 	app.Post("/authenticate", authenticate)
@@ -88,10 +88,24 @@ func authenticate(c *fiber.Ctx) error {
 			}
 		}
 	}
-	return nil
+	return nil // maybe change this 
 }
 
 func register(c *fiber.Ctx) error {
-	// implement register logic here, INSERT sql stuff
-	return nil
+	// Retrieve form data
+	email := c.FormValue("email")
+	username := c.FormValue("username")
+	usertype := c.FormValue("usertype")
+	password := c.FormValue("password")
+
+	// 	to be implemented: hashing the password
+
+	// Insert user into the database
+    _, err := db.Exec("INSERT INTO Users (Username, PasswordHash, Email, UserType ) VALUES (?, ?, ?, ?)", username, password, email, usertype)
+    if err != nil {
+        fmt.Errorf("error in registering user: %v", err)
+        return err
+    }
+	
+	return c.SendString("user successfully registered!")
 }

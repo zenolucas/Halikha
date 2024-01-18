@@ -78,30 +78,48 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sign Up Form</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up Form WTF</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
           <form action="/register" method="post">
+
+            <div class="form-outline mb-4">
+              <label>
+                <input type="radio" name="usertype" value='Artist'>
+                Artist
+              </label>
+              <label>
+                <input type="radio" name="usertype" value='Customer'>
+                Customer
+              </label>
+            </div>
+            
+            <div class="form-outline mb-4">
+              <label class="form-label" for="signUpEmail">Email</label>
+              <input type="text" id="signUpEmail" class="form-control" placeholder="input email" name="email" />
+            </div>
+
+
             <div class="form-outline mb-4">
               <label class="form-label" for="signUpUsername">Username</label>
-              <input type="text" id="logUsername" class="form-control" placeholder="input username"
-                name="username" />
+              <input type="text" id="logUsername" class="form-control" placeholder="input username" name="username" />
             </div>
-  
+
             <div class="form-outline mb-4">
               <label class="form-label" for="signUpPassword">Password</label>
               <input type="password" id="logPassword" class="form-control" name="password" />
             </div>
-  
+
             <div class="form-outline mb-4">
               <label class="form-label" for="confirmPassword">enter password again lol</label>
               <input type="password" id="confirmPassword" class="form-control" name="password" />
             </div>
-  
+
             <div class="text-center pt-1 mb-5 pb-1">
-              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Register Account</button>
+              <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Register
+                Account</button>
             </div>
           </form>
 

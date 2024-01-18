@@ -56,7 +56,7 @@ func main() {
 	// Authentication route
 	app.Post("/authenticate", authenticate)
 
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":3001"))
 }
 
 func login(c *fiber.Ctx) error {
@@ -88,7 +88,7 @@ func authenticate(c *fiber.Ctx) error {
 			}
 		}
 	}
-	return nil // maybe change this 
+	return nil // maybe change this
 }
 
 func register(c *fiber.Ctx) error {
@@ -101,11 +101,12 @@ func register(c *fiber.Ctx) error {
 	// 	to be implemented: hashing the password
 
 	// Insert user into the database
-    _, err := db.Exec("INSERT INTO Users (Username, PasswordHash, Email, UserType ) VALUES (?, ?, ?, ?)", username, password, email, usertype)
-    if err != nil {
-        fmt.Errorf("error in registering user: %v", err)
-        return err
-    }
-	
-	return c.SendString("user successfully registered!")
+	_, err := db.Exec("INSERT INTO Users (Username, PasswordHash, Email, UserType ) VALUES (?, ?, ?, ?)", username, password, email, usertype)
+	if err != nil {
+		fmt.Errorf("error in registering user: %v", err)
+		return err
+	}
+
+	// Redirect to the login page
+	return c.Redirect("/")
 }

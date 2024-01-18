@@ -4,6 +4,7 @@ package models
 type User struct {
 	ID       int64
 	Username string
-	Usertype string
 	Password string
+	Email	 string
+	Usertype string
 }

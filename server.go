@@ -73,22 +73,22 @@ func authenticate(c *fiber.Ctx) error {
 	password := c.FormValue("password")
 	var user models.User
 
-	row := db.QueryRow("SELECT * FROM users WHERE username = ?", username)
-	if err := row.Scan(&user.ID, &user.Username, &user.Usertype, &user.Password); err != nil {
-		return c.SendString("wrong username or password")
+	row := db.QueryRow("SELECT * FROM Users WHERE Username = ?", username)
+	if err := row.Scan(&user.ID, &user.Username, &user.Password, &user.Email, &user.Usertype); err != nil {
+		return c.SendString("error in retrieving data from database")
 	}
 
 	if user.Username == username {
 		if user.Password == password {
 
-			if user.Usertype == "artist" {
-				return c.SendFile("public/artistHomePage.html")
+			if user.Usertype == "Artist" {
+				return c.Redirect("artistHomePage.html")
 			} else {
-				return c.SendFile("public/customerHomePage.html")
+				return c.Redirect("customerHomePage.html")
 			}
 		}
 	}
-	return nil // maybe change this
+	return c.Redirect("/")
 }
 
 func register(c *fiber.Ctx) error {

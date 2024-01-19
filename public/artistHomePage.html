@@ -19,7 +19,7 @@
           </button>
 
           <div class="d-flex justify-content-center">
-            <form class="d-flex text-center"> <!-- Center the form horizontally -->
+            <form class="d-flex text-center"> <!-- Center the form horizontally // well this does not fucking work lol-->
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -56,35 +56,62 @@
 
     <br>
 
-    <div style="text-align: center;">
-        <p> so what can the artist do, shempre upload designs, so let's make a button </p>
-        <button class="btn btn-primary">Upload Designs</button>
-    </div>
+      <h3>testing upload</h3>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="upload" />
+        <input type="submit" />
+      </form>
 
+    <br>
 
-
-
-    <div class="row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+    <div class="card-group">
+        <div class="card">
+          <img src="images/bandrockcover.JPG" class="card-img-top"
+            alt="card1-image" height="425" width="326" />
+          <div class="card-body">
+            <h5 class="card-title">Create Awesome Products</h5>
+            <p class="card-text">
+              Upload your original art and choose products. Add at least five designs to get your shop ready for customers.
+              <ul>
+                <li><a href="/test.html" class="link-success">Add designs</a></li>
+              </ul>
+            </p>
           </div>
         </div>
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class="card">
+          <img src="images/ZenBBCshirt.JPG" class="card-img-top"
+            alt="card2-image" height="425" width="326" />
+          <div class="card-body">
+            <h5 class="card-title">Set up shop</h5>
+            <p class="card-text">
+              Customize your shop to stand out. Customers love supporting original artists. Tell them your story and share social links.
+              <ul>
+                <li><a href="/test.html" class="link-success">Add a profile picture</a></li>
+                <li><a href="/test.html" class="link-success">Add a cover image</a></li>
+                <li><a href="/test.html" class="link-success">Add social links</a></li>
+                <li><a href="/test.html" class="link-success">Add a bio</a></li>
+              </ul>
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/BBC_stickers.JPG" class="card-img-top"
+            alt="card3-image" height="425" width="326" />
+          <div class="card-body">
+            <h5 class="card-title">Get paid</h5>
+            <p class="card-text">
+              Verify your payment details so you can start selling.
+
+              <ul>
+                <li><a href="/test.html" class="link-success">Add your name and address</a></li>
+                <li><a href="/test.html" class="link-success">Confirm your email</a></li>
+                <li><a href="/test.html" class="link-success">Confirm your phone number</a></li>
+                <li><a href="/test.html" class="link-success">Add your payment details</a></li>
+              </ul>
+            </p>
           </div>
         </div>
       </div>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

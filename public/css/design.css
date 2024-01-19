@@ -1,0 +1,21 @@
+#canvas-container {
+    width: 873px;
+    height: 1200px;
+    left: 25%;
+    position: absolute;
+    margin: 30px;
+  }
+  
+  #background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #0057e3;
+    z-index: -1;
+  }
+  
+  #canvas{
+    z-index: 0;  
+    background: #009938;
+    position: absolute;
+    }

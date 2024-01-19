@@ -53,18 +53,17 @@ func main() {
 
 	app.Post("/register", register)
 
-	// Authentication route
 	app.Post("/authenticate", authenticate)
+
+	app.Post("/upload", uploadImage)
+
+	app.Get("/design", design)
 
 	log.Fatal(app.Listen(":3001"))
 }
 
 func login(c *fiber.Ctx) error {
 	return c.SendFile("public/index.html")
-}
-
-func test(c *fiber.Ctx) error {
-	return c.SendFile("public/test.html")
 }
 
 func authenticate(c *fiber.Ctx) error {
@@ -109,4 +108,18 @@ func register(c *fiber.Ctx) error {
 
 	// Redirect to the login page
 	return c.Redirect("/")
+}
+
+func uploadImage(c *fiber.Ctx) error {
+	file, err := c.FormFile("upload")
+	if err != nil {
+		return err
+	}
+
+	c.SaveFile(file, "public/uploads/"+file.Filename)
+	return c.SendString("File uploaded successfully!")
+}
+
+func design(c *fiber.Ctx) error {
+	return c.Redirect("design.html")
 }

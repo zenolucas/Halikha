@@ -19,3 +19,32 @@
     background: #009938;
     position: absolute;
     }
+
+/* STYLE FOR THE EDIT-DESIGN-SECTION */
+
+.edit-design-section {
+  width: 95%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-edit-wrapper {
+  background-color: #f0f0f0;
+  width: 948px;
+  height: 647px;
+  display: flex; /* Use flexbox for inner container */
+}
+
+.figure {
+  width: 588px;
+  height: 647px;
+}
+
+.tabs {
+  background-color: #a0a0a0;
+  width: 360px;
+  height: 647px;
+}

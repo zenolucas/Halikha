@@ -48,6 +48,7 @@ func main() {
 
 	// Serve other static files
 	app.Static("/", "./public")
+	app.Static("/", "./public/css")
 
 	app.Get("/", login)
 

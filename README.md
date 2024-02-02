@@ -3,4 +3,5 @@ attempt at a startup idea
 
 
 todo:
-make prototype (Figma) and implement sample routes
+design.html
+user should be able to 

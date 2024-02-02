@@ -57,28 +57,29 @@
   <h1>Design your Product</h1>
 
   <br>
-  <h3>testing upload</h3>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="upload" />
-    <input type="submit" />
+
+  <form hx-post="/upload" enctype="multipart/form-data" hx-target="#figure">
+        <input type="file" name="upload" />
+        <input type="submit" value="Upload" />
   </form>
 
   <br>
 
   <div class="edit-design-section">
     <div class="product-edit-wrapper">
-      <div class="figure">
+      <div class="figure" id="figure">
         <img src="./images/Tshirt-figure.png">
       </div>
       <div class="tabs">
-
+        <button id="saveChangesButton">Save Changes</button>
       </div>
     </div>
   </div>
 
 
-  <script src="js/fabric.min.js.js"></script>
-  <script src="js/canvas.js"></script>
+  <script src="js/htmx.min.js"></script>
+  <script src="js/fabric.min.js"></script>
+  <script src="js/design.js"></script>
 </body>
 
 </html>
